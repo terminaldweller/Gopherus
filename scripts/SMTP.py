@@ -1,12 +1,12 @@
-import urllib
+from urllib import parse
 
 
 def SMTP():
     print("\033[01m" + "\nGive Details to send mail: \n" + "\033[0m")
-    mailfrom = raw_input("\033[96m" + "Mail from :  " + "\033[0m")
-    Mailto = raw_input("\033[96m" + "Mail To :  " + "\033[0m")
-    subject = raw_input("\033[96m" + "Subject :  " + "\033[0m")
-    msg = raw_input("\033[96m" + "Message :  " + "\033[0m")
+    mailfrom = input("\033[96m" + "Mail from :  " + "\033[0m")
+    Mailto = input("\033[96m" + "Mail To :  " + "\033[0m")
+    subject = input("\033[96m" + "Subject :  " + "\033[0m")
+    msg = input("\033[96m" + "Message :  " + "\033[0m")
 
     commands = [
         "MAIL FROM:" + mailfrom,
@@ -20,7 +20,7 @@ def SMTP():
 
     payload = "%0A".join(commands)
     finalpayload = (
-        urllib.quote_plus(payload)
+        parse.quote_plus(payload)
         .replace("+", "%20")
         .replace("%2F", "/")
         .replace("%25", "%")

